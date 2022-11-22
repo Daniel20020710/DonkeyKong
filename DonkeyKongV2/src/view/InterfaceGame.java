@@ -23,11 +23,12 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
      */
     mario mariobros;
     herramienta herramienta;
+
     public InterfaceGame() {
         initComponents();
-        this.setResizable(false); 
-        mariobros = new mario(PantallaJuego, new JLabel[]{ Escalera1, Escalera2, Escalera3, Escalera4, Escalera5, Escalera6},
-                new JLabel[]{ viga1, viga2, viga3, viga4, viga5, viga6} );
+        this.setResizable(false);
+        mariobros = new mario(PantallaJuego, new JLabel[]{Escalera1, Escalera2, Escalera3, Escalera4, Escalera5, Escalera6},
+                new JLabel[]{viga1, viga2, viga3, viga4, viga5, viga6});
         PantallaJuego.setFocusable(true);
     }
 
@@ -134,7 +135,7 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
         vida.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
         vida.setForeground(new java.awt.Color(255, 255, 0));
         vida.setText("Vidas:");
-        jPanel2.add(vida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 127, -1));
+        jPanel2.add(vida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 180, -1));
 
         tiempo.setFont(new java.awt.Font("Tahoma", 2, 36)); // NOI18N
         tiempo.setForeground(new java.awt.Color(255, 255, 0));
@@ -175,10 +176,11 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
     hilo_monkey monkey_hilo;
 
     private void comenzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comenzarMouseClicked
-        mariobros.mover(txtMove, mario);
+
         mariobros.vidas(vida, mario);
+        mariobros.mover(txtMove, mario);
         txtMove.requestFocus();
-        
+
         try {
             monkey donkeykong = new monkey(monkey);
             monkey_hilo = new hilo_monkey(donkeykong);
@@ -189,8 +191,7 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
 
 //        hTiempo = new hilo_tiempo(tiempo);
 //        hTiempo.start();
-
-        herramienta.musica("C:\\Users\\Usuario\\Downloads\\DonkeyKong-main\\DonkeyKong-main\\DonkeyKongV2\\src\\resources\\tema.wav",10);
+        herramienta.musica("C:\\Users\\Usuario\\Downloads\\DonkeyKong-main\\DonkeyKong-main\\DonkeyKongV2\\src\\resources\\tema.wav", 10);
     }//GEN-LAST:event_comenzarMouseClicked
 
     public static void main(String args[]) {

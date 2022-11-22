@@ -8,6 +8,8 @@ import herramienta.herramienta;
 import java.applet.AudioClip;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -24,6 +26,7 @@ public class mario {
     String ruta = "/resources/mario-alreves.png";
     String ruta2 = "/resources/mario.png";
     int vida = 3;
+    JLabel vidas;
 
     public mario(JPanel pantalla, JLabel[] escaleras_, JLabel[] vigas_) {
         this.escaleras = escaleras_;
@@ -58,17 +61,22 @@ public class mario {
                         if (mario.getX() + mario.getWidth() + 3 < panel.getWidth()) {
                             mario.setLocation(mario.getX() + 10, mario.getY());
                             mario.setIcon(new javax.swing.ImageIcon(getClass().getResource(ruta2)));
-
+                            JLabel vigaTemp = GetVigaMario();
+                            if (mario.getX() + mario.getWidth() < vigaTemp.getX() || vigaTemp.getX() + vigaTemp.getWidth() < mario.getX()) {
+                                Caer();
+                            }
                         }
                     }
                     case KeyEvent.VK_LEFT -> {
                         if (mario.getX() - 3 > 0) {
                             mario.setLocation(mario.getX() - 10, mario.getY());
                             mario.setIcon(new javax.swing.ImageIcon(getClass().getResource(ruta)));
+                            JLabel vigaTemp = GetVigaMario();
+                            if (mario.getX() + mario.getWidth() < vigaTemp.getX() || vigaTemp.getX() + vigaTemp.getWidth() < mario.getX()) {
+                                Caer();
+                            }
                         }
 
-//                        herramienta.musica("resources\\pacman-waka-waka.wav", 0);
-//                        System.out.println("x: " + mario.getX() + " Y: " + mario.getY());
                     }
 
                     default ->
@@ -85,10 +93,54 @@ public class mario {
 
     }
 
+    public void Caer() {
+
+        new Thread() {
+            @Override
+            public void run() {
+                super.run(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+                Boolean estaCayenndo = true;
+                while (estaCayenndo) {
+                    System.out.println("Cayendo");
+                    mario.setLocation(mario.getX(), mario.getY() + 1);
+                    try {
+                        sleep(10);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(mario.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JLabel vigaTemp = GetVigaMario();
+                    if (!(mario.getX() + mario.getWidth() < vigaTemp.getX() || vigaTemp.getX() + vigaTemp.getWidth() < mario.getX())) {
+                        estaCayenndo = false;
+                    }
+                    if (mario.getY() > panel.getHeight()) {
+
+                        vida--;
+                        System.out.println(vida);
+                        vidas.setText("Vidas : " + vida);
+                        try {
+                             if (vida <= 0) {
+                                JOptionPane.showMessageDialog(null, "Game Over, loser");
+
+                                stop();
+                            }
+                            sleep(1000);
+                           
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(mario.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                }
+            }
+
+        }.start();
+
+    }
+
     public JLabel GetVigaMario() {
         JLabel vigaTemp = vigas[0];
         for (JLabel viga : vigas) {
-            if (mario.getY() + mario.getHeight() + 8 < viga.getY()) {
+            if (mario.getY() + mario.getHeight() - 8 < viga.getY()) {
                 vigaTemp = viga;
             }
         }
@@ -140,9 +192,11 @@ public class mario {
 
     public void vidas(JLabel vidas, JLabel mario) {
         vidas.setText("Vidas:" + vida);
+        this.vidas = vidas;
         if (mario.getX() <= 80) {
             System.out.println("Hola");
             vida -= 1;
+
             vidas.setText("Vidas:" + vida);
 
         }
