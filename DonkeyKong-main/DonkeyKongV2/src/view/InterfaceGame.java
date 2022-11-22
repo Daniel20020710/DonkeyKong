@@ -10,6 +10,7 @@ import personajes.mario;
 import personajes.monkey;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JLabel;
 
 /**
  *
@@ -25,7 +26,8 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
     public InterfaceGame() {
         initComponents();
         this.setResizable(false); 
-        mariobros = new mario(Escalera1, Escalera2, Escalera3, Escalera4, Escalera5, Escalera6);
+        mariobros = new mario(new JLabel[]{ Escalera1, Escalera2, Escalera3, Escalera4, Escalera5, Escalera6},
+                new JLabel[]{ viga1, viga2, viga3, viga4, viga5, viga6} );
         jPanel1.setFocusable(true);
     }
 
