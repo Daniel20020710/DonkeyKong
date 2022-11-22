@@ -19,14 +19,16 @@ public class mario {
     JLabel[] vigas;
     JLabel[] escaleras;
     JLabel mario;
+    JPanel panel;
     herramienta herramienta;
     String ruta = "/resources/mario-alreves.png";
     String ruta2 = "/resources/mario.png";
     int vida = 3;
 
-    public mario(JLabel[] escaleras_, JLabel[] vigas_) {
+    public mario(JPanel pantalla, JLabel[] escaleras_, JLabel[] vigas_) {
         this.escaleras = escaleras_;
         this.vigas = vigas_;
+        this.panel = pantalla;
 
     }
 
@@ -53,18 +55,19 @@ public class mario {
                         }
                     }
                     case KeyEvent.VK_RIGHT -> {
+                        if (mario.getX() + mario.getWidth() + 3 < panel.getWidth()) {
+                            mario.setLocation(mario.getX() + 10, mario.getY());
+                            mario.setIcon(new javax.swing.ImageIcon(getClass().getResource(ruta2)));
 
-                        mario.setLocation(mario.getX() + 10, mario.getY());
-//                        System.out.println("x: " + mario.getX() + " Y: " + mario.getY());
-                        mario.setIcon(new javax.swing.ImageIcon(getClass().getResource(ruta2)));
-
+                        }
                     }
                     case KeyEvent.VK_LEFT -> {
+                        if (mario.getX() - 3 > 0) {
+                            mario.setLocation(mario.getX() - 10, mario.getY());
+                            mario.setIcon(new javax.swing.ImageIcon(getClass().getResource(ruta)));
+                        }
 
-                        mario.setLocation(mario.getX() - 10, mario.getY());
-                        mario.setIcon(new javax.swing.ImageIcon(getClass().getResource(ruta)));
 //                        herramienta.musica("resources\\pacman-waka-waka.wav", 0);
-
 //                        System.out.println("x: " + mario.getX() + " Y: " + mario.getY());
                     }
 
@@ -95,21 +98,23 @@ public class mario {
     public JLabel GetEscalera() {
         JLabel escalera = escaleras[0];
         for (JLabel escalera1 : escaleras) {
-            if (mario.getX() == escalera1.getX() && mario.getY() < escalera1.getY() + escalera.getHeight()+18) {
+            if (mario.getX() == escalera1.getX() && mario.getY() < escalera1.getY() + escalera.getHeight() + 18) {
                 return escalera1;
             }
         }
         return escalera;
     }
+
     public JLabel GetEscaleraBajar() {
         JLabel escalera = escaleras[0];
         for (JLabel escalera1 : escaleras) {
-            if (mario.getX() == escalera1.getX() && GetVigaMario().getY() + escalera1.getHeight() >  escalera1.getY()) {
+            if (mario.getX() == escalera1.getX() && GetVigaMario().getY() + escalera1.getHeight() > escalera1.getY()) {
                 return escalera1;
             }
         }
         return escalera;
     }
+
     public boolean verificarEscalera() {
         if (mario.getX() == GetEscalera().getX()
                 && mario.getY() < GetVigaMario().getY()

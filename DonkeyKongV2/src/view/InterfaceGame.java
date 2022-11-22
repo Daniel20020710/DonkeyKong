@@ -26,9 +26,9 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
     public InterfaceGame() {
         initComponents();
         this.setResizable(false); 
-        mariobros = new mario(new JLabel[]{ Escalera1, Escalera2, Escalera3, Escalera4, Escalera5, Escalera6},
+        mariobros = new mario(PantallaJuego, new JLabel[]{ Escalera1, Escalera2, Escalera3, Escalera4, Escalera5, Escalera6},
                 new JLabel[]{ viga1, viga2, viga3, viga4, viga5, viga6} );
-        jPanel1.setFocusable(true);
+        PantallaJuego.setFocusable(true);
     }
 
     @SuppressWarnings("unchecked")
@@ -38,7 +38,7 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
         jLabel5 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        PantallaJuego = new javax.swing.JPanel();
         viga2 = new javax.swing.JLabel();
         viga4 = new javax.swing.JLabel();
         viga5 = new javax.swing.JLabel();
@@ -70,58 +70,58 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PantallaJuego.setBackground(new java.awt.Color(0, 0, 0));
+        PantallaJuego.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        PantallaJuego.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         viga2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/viga.png"))); // NOI18N
-        jPanel1.add(viga2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, -1, 26));
+        PantallaJuego.add(viga2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, -1, 26));
 
         viga4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/viga.png"))); // NOI18N
-        jPanel1.add(viga4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 300, -1, 26));
+        PantallaJuego.add(viga4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 300, -1, 26));
 
         viga5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/viga.png"))); // NOI18N
-        jPanel1.add(viga5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 390, 26));
+        PantallaJuego.add(viga5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 390, 26));
 
         viga6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/viga.png"))); // NOI18N
-        jPanel1.add(viga6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 440, 26));
+        PantallaJuego.add(viga6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 440, 26));
 
         viga3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/viga.png"))); // NOI18N
-        jPanel1.add(viga3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, -1, 26));
+        PantallaJuego.add(viga3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, -1, 26));
 
         viga1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/viga.png"))); // NOI18N
-        jPanel1.add(viga1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, -1, -1));
+        PantallaJuego.add(viga1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, -1, -1));
 
         mario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/mario.png"))); // NOI18N
-        jPanel1.add(mario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 50, 50));
+        PantallaJuego.add(mario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 550, 50, 50));
 
         Escalera6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/escalera.png"))); // NOI18N
-        jPanel1.add(Escalera6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, 105));
+        PantallaJuego.add(Escalera6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, 105));
 
         Escalera1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/escalera.png"))); // NOI18N
-        jPanel1.add(Escalera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, -1, 105));
+        PantallaJuego.add(Escalera1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, -1, 105));
 
         Escalera3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/escalera.png"))); // NOI18N
-        jPanel1.add(Escalera3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, 105));
+        PantallaJuego.add(Escalera3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, 105));
 
         Escalera2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/escalera.png"))); // NOI18N
-        jPanel1.add(Escalera2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, -1, 105));
+        PantallaJuego.add(Escalera2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 510, -1, 105));
 
         Escalera4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/escalera.png"))); // NOI18N
-        jPanel1.add(Escalera4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, -1, 105));
+        PantallaJuego.add(Escalera4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, -1, 105));
 
         monkey.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/monkey.png"))); // NOI18N
-        jPanel1.add(monkey, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 100, 110));
+        PantallaJuego.add(monkey, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 100, 110));
 
         Escalera5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/escalera.png"))); // NOI18N
-        jPanel1.add(Escalera5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, 105));
+        PantallaJuego.add(Escalera5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 210, -1, 105));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/barriles.png"))); // NOI18N
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 100));
+        PantallaJuego.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 100));
 
         txtMove.setBackground(new java.awt.Color(0, 0, 0));
         txtMove.setBorder(null);
-        jPanel1.add(txtMove, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 140, 40));
+        PantallaJuego.add(txtMove, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 140, 40));
 
         jPanel2.setBackground(new java.awt.Color(0, 51, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -159,13 +159,13 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PantallaJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
+            .addComponent(PantallaJuego, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -210,6 +210,7 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JLabel Escalera4;
     private javax.swing.JLabel Escalera5;
     private javax.swing.JLabel Escalera6;
+    private javax.swing.JPanel PantallaJuego;
     private javax.swing.JButton comenzar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
@@ -217,7 +218,6 @@ public class InterfaceGame extends javax.swing.JFrame implements KeyListener {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     public javax.swing.JLabel mario;
     private javax.swing.JLabel monkey;
