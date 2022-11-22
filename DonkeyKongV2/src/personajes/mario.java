@@ -85,32 +85,46 @@ public class mario {
     public JLabel GetVigaMario() {
         JLabel vigaTemp = vigas[0];
         for (JLabel viga : vigas) {
-            if (mario.getY() < viga.getY()) {
+            if (mario.getY() + mario.getHeight() + 8 < viga.getY()) {
                 vigaTemp = viga;
             }
         }
         return vigaTemp;
     }
 
-    public boolean verificarEscalera() {
+    public JLabel GetEscalera() {
+        JLabel escalera = escaleras[0];
         for (JLabel escalera1 : escaleras) {
-            if (mario.getX() == escalera1.getX()
-                    && mario.getY() < GetVigaMario().getY()
-                    && mario.getY() + mario.getHeight() + 8 > escalera1.getY()) {
-                return true;
+            if (mario.getX() == escalera1.getX() && mario.getY() < escalera1.getY() + escalera.getHeight()+18) {
+                return escalera1;
             }
+        }
+        return escalera;
+    }
+    public JLabel GetEscaleraBajar() {
+        JLabel escalera = escaleras[0];
+        for (JLabel escalera1 : escaleras) {
+            if (mario.getX() == escalera1.getX() && GetVigaMario().getY() + escalera1.getHeight() >  escalera1.getY()) {
+                return escalera1;
+            }
+        }
+        return escalera;
+    }
+    public boolean verificarEscalera() {
+        if (mario.getX() == GetEscalera().getX()
+                && mario.getY() < GetVigaMario().getY()
+                && mario.getY() + mario.getHeight() + 8 > GetEscalera().getY()) {
+            return true;
         }
         return false;
 
     }
 
     public boolean verificarBajar() {
-        for (JLabel escalera1 : escaleras) {
-            if (mario.getX() == escalera1.getX()
-                    && mario.getY() < GetVigaMario().getY()
-                    && mario.getY() + mario.getHeight() < escalera1.getY() + escalera1.getHeight()- 18 ) {
-                return true;
-            }
+        if (mario.getX() == GetEscaleraBajar().getX()
+                && mario.getY() < GetVigaMario().getY()
+                && mario.getY() + mario.getHeight() < GetEscaleraBajar().getY() + GetEscaleraBajar().getHeight() - 18) {
+            return true;
         }
         return false;
     }
