@@ -1,3 +1,0 @@
-# DonkeyKong
-
-Daniel Pro Max
